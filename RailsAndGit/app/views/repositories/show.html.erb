@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Criador:</strong>
+  <%= @repository.owner %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @repository.name %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @repository.description %>
+</p>
+
+<p>
+  <strong>Linguagem:</strong>
+  <%= @repository.language %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @repository.link %>
+</p>
+
+<%= link_to 'Voltar', repositories_path %>

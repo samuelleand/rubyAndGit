@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/pgdata
+    environment:
+      - POSTGRES_PASSWORD=aluno
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=railsandgit
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "5433:5432"
+    
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/RailsAndGit
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:      
